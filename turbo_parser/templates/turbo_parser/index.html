@@ -1,0 +1,35 @@
+{% extends 'turbo_parser/base.html' %}
+
+{% load static %}
+
+{% block title %}Turbo Parser{% endblock title %}
+
+{% block custom_css %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+{% endblock custom_css %}
+
+{% block moy_kontent %}
+    <!-- Page Content -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="mt-5">Turbo Parser</h1>
+                    <p>
+                        Turbo Parser will immediately notify you about new opportunities.
+                        Be our client and get bot who will browse market instead of you!
+                    </p>
+                    <button id="start-purchase-btn" type="button" class="btn btn-lg">
+                        <a id="start-purchase-link" href={% url 'instructions' %}>
+                            Show Instuctions
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock moy_kontent %}
+
+
+
+

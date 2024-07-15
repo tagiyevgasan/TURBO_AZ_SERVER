@@ -1,0 +1,23 @@
+{% extends 'turbo_parser/base.html' %}
+
+{% load static %}
+
+{% block title %}Turbo Parser{% endblock title %}
+
+{% block custom_css %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+{% endblock custom_css %}
+
+{% block moy_kontent %}
+
+    <div class="container" style="margin-top: 70px; margin-left: 70px;">
+        <video src="{% static 'vendor/video/trailer.mp4' %}" width="480" height="360" controls>  
+            Your browser doesnt support the video tag                 
+        </video>
+    </div>
+    
+{% endblock moy_kontent %}
+
+
+
+

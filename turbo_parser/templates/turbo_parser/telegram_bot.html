@@ -1,0 +1,42 @@
+<div class="col-lg-8">
+    <h4 class="mt-3 mb-3 d-flex justify-content-between align-items-center mb-3">
+        Telegram bot: (@Joonny_Bot) <span class="badge badge-success badge-pill">Active</span>
+    </h4>
+
+    <div class="card mb-3">
+        <div class="card-footer">
+            <h5 class="float-left">Telegram chat id: </h5>
+            {{form.telegram_chat_id}}
+        </div>
+        <button type="button" id="btn" onclick="myFun()" class="btn btn-success btn-lg float-right">Change</button>
+    </div>
+</div>
+
+<script>
+    tel_chat_id = document.getElementById("telegram_chat_id");
+    btn = document.getElementById("btn");
+
+    function myFun() {
+
+        if (tel_chat_id.readOnly) {
+            
+            tel_chat_id.readOnly = false;
+            btn.innerText = "Done";
+        } else if (tel_chat_id.value=='') {
+            tel_chat_id.readOnly = true;
+            btn.innerText = "Add";
+        } else {
+            tel_chat_id.readOnly = true;
+            btn.innerText = "Change";
+        }
+
+        
+    }
+    window.onload = function(){
+        if (tel_chat_id.getAttribute("value")==null) {
+            btn.innerText = "Add";
+        } else {
+            btn.innerText = "Change";
+        }
+    }
+</script>

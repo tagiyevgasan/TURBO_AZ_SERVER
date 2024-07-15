@@ -1,0 +1,58 @@
+{% extends 'turbo_parser/base.html' %}
+{% load static %}
+
+{% block custom_css %}
+    <link href="{% static 'css/profile.css' %}" rel="stylesheet">
+{% endblock custom_css %}
+
+{% block moy_kontent %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-7">
+            <h4 class="mt-3 mb-3">Profile</h4>
+            <form action="{% url 'turbo_parser:profile' %}" method="post">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-lg-6">
+                        <label class="small mb-1" for="{{form.username.id_for_label}}">User name</label>
+                        {{ form.username }}
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label class="small mb-1" for="{{form.phone_number.id_for_label}}">Phone number</label>
+                            {{ form.phone_number }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+
+                    <div class="col-lg-4">
+                        <label class="small mb-1" for="{{form.max_num_of_orders.id_for_label}}">Maximum number of orders</label>
+                        {{ form.max_num_of_orders }}
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="small mb-1" for="inputActiveNumOrders">Active number of orders</label>
+                        <input class="form-control py-4" id="inputActiveNumOrders" type="number"
+                               value="{{ user_orders }}" disabled/>
+                        
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-lg-10">
+                        {% include 'turbo_parser/telegram_bot.html' %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-lg-12" style="margin-top: 33px;">
+                        <input class="btn btn-info btn-block" type="submit" value="Save">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        
+    </div>
+</div>
+{% endblock moy_kontent %}
+
